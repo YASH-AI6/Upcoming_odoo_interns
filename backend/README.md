@@ -132,9 +132,10 @@ npm run dev
 - **Automated**: Nightly cron job runs automatically at midnight (`0 0 * * *`)
 
 ### Dashboard (Admin & Staff)
-- `GET /api/v1/dashboard/summary` - Aggregated metrics via SQL: active subscription count, MRR, ARR, revenue collected, outstanding amount, overdue count and overdue buckets (1-7, 8-30, 30+ days)
+- `GET /api/v1/dashboard/summary` - Aggregated metrics via SQL: active subscription counts, MRR, ARR, revenue collected, outstanding amount, overdue count and overdue buckets (1-7, 8-30, 30+ days)
 
 ### Customer Portal (Customer Scoped)
 - `GET /api/v1/portal/subscriptions` - Subscriptions belonging to the authenticated customer
 - `GET /api/v1/portal/invoices` - Invoices belonging to the authenticated customer
 - `GET /api/v1/portal/payments` - Payments belonging to the authenticated customer
+
