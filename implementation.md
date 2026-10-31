@@ -1,0 +1,66 @@
+# Implementation Tracking: Subscription Management System Backend
+
+## Current Status: Completed (100%)
+- [x] Environment & prerequisites inspection (Node.js v24.18.1, npm 11.16.0, PostgreSQL 18 service setup)
+- [x] Project scaffolding (`backend/package.json`, `tsconfig.json`, `.gitignore`, `.env.example`, `.env`)
+- [x] Database Schema (`prisma/schema.prisma`) with all required models, relations, money Decimal types, indexes, and constraints
+- [x] Database migrations created and applied (`20261031063822_init`)
+- [x] Core configuration, database client, and utilities:
+  - `src/config/env.ts` (Typed Zod environment parsing)
+  - `src/config/prisma.ts` (Singleton PrismaClient)
+  - `src/utils/errors.ts` (Standardized HTTP error classes)
+  - `src/utils/password.ts` (Bcrypt hashing & password complexity rules)
+  - `src/utils/jwt.ts` (JWT signing and verification)
+  - `src/utils/sequence.ts` (Thread-safe sequential numbering: `SUB-0001`, `INV-0001`)
+  - `src/utils/dateUtils.ts` (Period math with month-end protection, overdue bucketing: 1-7, 8-30, 30+ days)
+  - `src/utils/email.ts` (Nodemailer password reset & invoice email with PDF attachments)
+  - `src/utils/pdf.ts` (PDFKit invoice generator)
+  - `src/utils/audit.ts` (Audit logger with JSON before/after snapshots)
+  - `src/utils/pagination.ts` (Server-side pagination utilities)
+- [x] Core middleware:
+  - `src/middleware/auth.ts` (Bearer token JWT authentication)
+  - `src/middleware/rbac.ts` (Role-based access control for ADMIN, STAFF, CUSTOMER)
+  - `src/middleware/validate.ts` (Zod validation for body, query, and params)
+  - `src/middleware/errorHandler.ts` (Centralized error handler with Prisma & Zod error mapping)
+  - `src/middleware/rateLimiter.ts` (Rate limiter for sensitive auth endpoints)
+- [x] Modules implementation (Type-checked & clean):
+  - [x] `auth` (signup with password rules & customer link, login JWT, forgot-password with 30-min token, reset-password, me)
+  - [x] `users` (create staff user by ADMIN only, list users with pagination)
+  - [x] `customers` (CRUD, server-side pagination, search, audit logging)
+  - [x] `products` (CRUD, variants with `extraPrice` e.g. brand Odoo = +560, product taxes)
+  - [x] `plans` (CRUD, DAILY/WEEKLY/MONTHLY/YEARLY, flags: autoClose, closable, pausable, renewable, minQuantity & window validation)
+  - [x] `templates` (Quotation templates with prefilled lines, validityDays, plan hydration)
+  - [x] `subscriptions` (CRUD, sequential numbering `SUB-0001`, state machine transitions, plan flags enforcement, quotation hydration, renew, pause, resume, close, confirm, activate)
+  - [x] `taxes` (Tax rules management, automatic calculation, scoped to products)
+  - [x] `discounts` (Discount rules with usage limits, expiry date windows, minPurchase, minQuantity, PRODUCT & SUBSCRIPTION scopes)
+  - [x] `invoices` (Sequential numbering `INV-0001`, line calculations, overdue derivation & buckets, PDF streaming, email sending, cancel restriction on PAID)
+  - [x] `payments` (Record payment, partial payments allowed, auto-marking PAID when amountPaid >= total, list by invoice)
+  - [x] `billing` (Idempotent billing engine with unique `[subscriptionId, billingPeriodStart]` constraint, multi-period catch-up, transaction batches, auto-close, dryRun preview, Time Machine endpoints, node-cron nightly job)
+  - [x] `dashboard` (SQL aggregations for active subscription count, MRR, ARR, revenue collected, outstanding amount, overdue count and overdue buckets)
+  - [x] `portal` (Customer-scoped portal endpoints for subscriptions, invoices, and payments)
+- [x] High-performance Seed script (`prisma/seed.ts`):
+  - 1 admin (`admin@example.com` / `AdminPassword123!`)
+  - 2 staff (`staff1@example.com`, `staff2@example.com` / `StaffPassword123!`)
+  - 20 products with Odoo variant (+560)
+  - 5 plans across all billing periods
+  - 3 taxes & 3 discounts
+  - 3 quotation templates
+  - 200 customers
+  - 5,100 subscriptions in mixed statuses with realistic dates
+  - 1,200 invoices (paid, partially paid, overdue buckets 1-7, 8-30, 30+ days)
+  - 800 payments
+- [x] Comprehensive Test Suite (`tests/` with 100% pass rate: 6 suites, 32/32 tests passing):
+  - `tests/auth.test.ts`
+  - `tests/rbac-scoping.test.ts`
+  - `tests/subscription-state-machine.test.ts`
+  - `tests/billing-engine.test.ts`
+  - `tests/discounts-taxes.test.ts`
+  - `tests/payments.test.ts`
+- [x] Final verification:
+  - `npm run build` compiled clean without errors
+  - `npm run seed` executes fast and seeds 5,100+ subscriptions
+  - `npm test` runs all 32 tests successfully
+  - `npm run dev` boots HTTP API server on port 4000
+- [/] Git repository initialization and push to GitHub:
+  - Remote: `https://github.com/YASH-AI6/Upcoming_odoo_interns.git`
+  - Branch: `main`

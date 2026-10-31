@@ -1,0 +1,14 @@
+{
+  "name": "subscription-management-system",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install:backend": "npm --prefix backend install",
+    "build": "npm --prefix backend run build",
+    "dev": "npm --prefix backend run dev",
+    "seed": "npm --prefix backend run seed",
+    "test": "npm --prefix backend run test",
+    "prisma:migrate": "npm --prefix backend run prisma:migrate",
+    "prisma:generate": "npm --prefix backend run prisma:generate"
+  }
+}
