@@ -76,7 +76,7 @@ npm run dev
 - `GET /api/v1/customers` - List customers (server-side pagination, search, filters)
 - `GET /api/v1/customers/:id` - Customer profile with recent subscriptions & invoices
 - `PUT /api/v1/customers/:id` - Update customer
-- `DELETE /api/v1/customers/:id` - Delete customer (if no linked records)
+- `DELETE /api/v1/customers/:id` - Delete customer 
 
 ### Products & Variants (Admin: write, Staff: read)
 - `GET /api/v1/products` - List products with variants and tax rules
