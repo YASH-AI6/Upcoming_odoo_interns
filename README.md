@@ -31,25 +31,24 @@ FRONTEND_URL="http://localhost:3000"
 
 ## Quick Start Commands
 
+### 1. Backend Service (Port 4000)
 ```bash
-# Navigate to backend directory
 cd backend
-
-# Install dependencies
 npm install
-
-# Run database migrations
 npx prisma migrate dev
-
-# Seed database with 5,000+ subscriptions, 200 customers, products, plans, taxes, discounts
-npm run seed
-
-# Run automated tests (Jest + Supertest)
-npm test
-
-# Run development server (with auto-reload)
-npm run dev
+npm run seed      # Seeds 5,100+ subscriptions, 200 customers, realistic data
+npm test          # Runs 32 automated Jest + Supertest suites
+npm run dev       # Starts backend API on http://localhost:4000
 ```
+
+### 2. Frontend Application (Port 3000)
+```bash
+cd frontend
+npm install
+npm run dev       # Launches Vite dev server on http://localhost:3000
+```
+
+*Note: The frontend proxies all `/api` requests directly to `http://localhost:4000`.*
 
 ## Seed Credentials
 - **Admin**: `admin@example.com` / `AdminPassword123!`

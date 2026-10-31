@@ -65,3 +65,44 @@
   - Remote: `https://github.com/YASH-AI6/Upcoming_odoo_interns.git`
   - Branch: `main` (tracked: `origin/main`)
   - Modular commits created for: project config, Prisma schema & migrations, core utils & middleware, auth & customers, catalog & plans, subscriptions state machine, billing engine & finance, Jest test suites & seed script
+
+## Frontend Phase: Elegant & Professional Full-Stack UI
+- [x] Frontend Scaffolding & Setup (`frontend/`):
+  - Vite + React + TypeScript
+  - Lucide icons, Canvas Confetti celebrations
+  - Modern Typography: Google Fonts (Outfit & Plus Jakarta Sans & JetBrains Mono), fluid spacing, dark-mode obsidian palette
+- [x] Design System (`index.css` & tokens):
+  - Glassmorphic panels, ambient mesh gradient backdrops, crisp typography scale, buttery transitions
+  - Reusable UI kit: Buttons, Badges, Modals, Stat Cards, Data Tables, Tabs, Form controls
+- [x] Public Landing & Hero Section:
+  - Ultra-refined Hero section with interactive live subscription calculator (period switch, variant rule addition +₹560, dynamic tax/discount breakdown)
+  - 3D holographic fintech visual asset with floating MRR and idempotency badges
+  - One-click demo credential switchers (Admin, Staff, Customer)
+- [x] Admin & Staff Executive Dashboard:
+  - Real-time SQL KPI aggregations (MRR, ARR, active subscription count, collected revenue, outstanding receivables)
+  - Overdue Aging Buckets visualization (1-7 days, 8-30 days, 30+ days)
+  - Interactive SVG revenue and billing run-rate trajectory chart
+- [x] Subscriptions Manager & State Machine:
+  - Full registry table with filter by status (ACTIVE, PAUSED, CONFIRMED, DRAFT, CLOSED)
+  - Dynamic state machine actions: Confirm, Activate, Pause, Resume, Close, Renew
+  - Product lines and variant extra price preview
+  - Quotation Template subscription creation modal with automated line hydration
+- [x] Billing Time Machine:
+  - Simulation controller with target date picker
+  - Dry-Run Preview (`dryRun = true`) vs Live DB Execution
+  - Live idempotency verification test (running twice for same date produces zero duplicate invoices)
+  - Forecasted invoices breakdown and problem subscription reasons
+- [x] Invoices & Payments Manager:
+  - Status badges with overdue derivation
+  - PDFKit printable PDF invoice download & email trigger
+  - Instant payment modal with partial payment support and confetti celebration on full settlement
+- [x] Customer Self-Service Portal:
+  - Customer-scoped subscriptions, pause/resume controls
+  - Invoice history, printable PDF downloads, 1-click payment checkout
+- [x] Product Catalog & Plan Explorer:
+  - Interactive variant price surcharge calculator (e.g. brand Odoo = +₹560)
+  - Multi-period plan rules with lifecycle flags (pausable, closable, renewable, autoClose)
+- [x] End-to-end integration and verification:
+  - Vite dev server running on port 3000 with API proxy to Express backend on port 4000
+  - Verified JWT auth, dashboard SQL queries, and zero build/type errors
+
