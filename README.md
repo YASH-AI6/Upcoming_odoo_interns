@@ -1,4 +1,4 @@
-# Subscription Management System (Backend)
+-> # Subscription Management System (Backend)
 
 High-performance, idempotent Subscription Management backend built with Node.js, Express, TypeScript, PostgreSQL, and Prisma ORM.
 
