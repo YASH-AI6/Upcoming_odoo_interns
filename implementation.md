@@ -61,6 +61,7 @@
   - `npm run seed` executes fast and seeds 5,100+ subscriptions
   - `npm test` runs all 32 tests successfully
   - `npm run dev` boots HTTP API server on port 4000
-- [/] Git repository initialization and push to GitHub:
+- [x] Git repository initialization and push to GitHub:
   - Remote: `https://github.com/YASH-AI6/Upcoming_odoo_interns.git`
-  - Branch: `main`
+  - Branch: `main` (tracked: `origin/main`)
+  - Modular commits created for: project config, Prisma schema & migrations, core utils & middleware, auth & customers, catalog & plans, subscriptions state machine, billing engine & finance, Jest test suites & seed script
