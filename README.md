@@ -115,7 +115,7 @@ npm run dev
 
 ### Taxes & Discounts (Admin: write, Staff: read)
 - `GET /api/v1/taxes` & `POST /api/v1/taxes` - Tax rules management
-- `GET /api/v1/discounts` & `POST /api/v1/discounts` - Discount rules (usage limits, scopes, date windows)
+- `GET /api/v1/discounts` & `POST /api/v1/discounts` - Discount rules (usages limits, scope, date windows)
 
 ### Invoices & Payments
 - `GET /api/v1/invoices` - List invoices (overdue bucketing: 1-7, 8-30, 30+ days)
